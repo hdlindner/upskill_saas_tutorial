@@ -39,7 +39,12 @@
       </div>
     </nav>
     
-   
+    <div class="container">
+      <% flash.each do |type, msg| %> <!-- this was < %= flash[:error] or flash[:notice] %> and it would only flash "notice" -->
+        <%= content_tag :div, msg, class: "alert alert-#{type}" %>
+      <% end %>
+    </div>
+    
     <%= yield %>
     
   </body>

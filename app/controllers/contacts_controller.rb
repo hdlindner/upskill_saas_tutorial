@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
       redirect_to new_contact_path
 #     redirect_to new_contact_path, notice: "Message sent"
     else
-      flash[:error] = @contact.errors.full_messages.join(", ")
+      flash[:danger] = @contact.errors.full_messages.join(", ")   #we now change error to danger to work with bootstrap
       redirect_to new_contact_path#, notice: "Error occured"
     end
   end
